@@ -1,0 +1,44 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="52" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="exceptiongroup" />
+          <option value="click" />
+          <option value="colorama" />
+          <option value="h11" />
+          <option value="numpy" />
+          <option value="pandas" />
+          <option value="python-dateutil" />
+          <option value="pytz" />
+          <option value="six" />
+          <option value="tzdata" />
+          <option value="uvicorn" />
+          <option value="psycopg2-binary" />
+          <option value="annotated-doc" />
+          <option value="annotated-types" />
+          <option value="anyio" />
+          <option value="fastapi" />
+          <option value="idna" />
+          <option value="pydantic" />
+          <option value="pydantic_core" />
+          <option value="starlette" />
+          <option value="typing-inspection" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="app.users.get_user_manager" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

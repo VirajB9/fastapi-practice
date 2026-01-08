@@ -1,0 +1,72 @@
+Medium Coding Requirement 2
+Order & OrderItem API (E-Commerce Core)
+🎯 Tests
+FKs · Cascades · Transactions · Service validation
+---
+📌 Problem Statement
+Build an Order Management API using FastAPI + PostgreSQL.
+---
+📂 Required Structure
+project/
+│── main.py
+│── routes/
+│   ├── order_route.py
+│   └── item_route.py
+│── services/
+│   ├── order_service.py
+│   └── item_service.py
+│── sql/
+│   ├── database.py
+│   ├── models.py
+│   └── crud.py
+---
+🧱 Data Models
+Order
+
+Field	Type
+
+id	int (PK)
+customer_name	string
+status	string ("open", "closed")
+---
+OrderItem
+
+Field	Type
+
+id	int (PK)
+product_name	string
+quantity	int
+order_id	FK → orders.id
+
+---
+🔁 Relationships
+One Order → Many OrderItems
+Cascade delete enabled
+
+---
+🧠 Business Rules
+1️⃣ Items can be added only when
+order.status == "open"
+2️⃣ Closing an Order prevents:
+adding items
+deleting items
+3️⃣ Deleting an Order deletes all OrderItems
+
+---
+🛠️ Required APIs
+
+Order
+POST /orders
+GET  /orders
+PATCH /orders/{id}/close
+DELETE /orders/{id}
+
+OrderItem
+POST /items
+DELETE /items/{id}
+
+---
+❌ Disallowed
+Status checks in CRUD
+Skipping validations
+Hardcoding IDs
