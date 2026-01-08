@@ -1,0 +1,68 @@
+Event & Ticket Booking API
+ Tests
+FastAPI · SQLAlchemy · FK · Service logic · Cascades · Validation
+---
+ Problem Statement
+Build a FastAPI REST API to manage Events and Tickets using PostgreSQL.
+---
+ Required Project Structure
+
+project/
+│── main.py
+│── routes/
+│   ├── event_route.py
+│   └── ticket_route.py
+│── services/
+│   ├── event_service.py
+│   └── ticket_service.py
+│── sql/
+│   ├── database.py
+│   ├── models.py
+│   └── crud.py
+---
+ Data Models
+Event
+Field    Type
+
+id    int (PK)
+name    string
+category    string ("public", "private")
+max_seats    int
+---
+
+Ticket
+Field    Type
+
+id    int (PK)
+attendee_name    string
+event_id    FK → events.id
+---
+
+ Relationships
+One Event → Many Tickets
+ORM relationship using relationship()
+Cascade delete enabled (all, delete-orphan)
+---
+
+ Business Rules (Service Layer Only)
+ Tickets can be created only if
+event.category == "public"
+ Total tickets cannot exceed max_seats
+ Deleting an Event should delete all its Tickets automatically
+---
+
+ Required APIs
+Event
+GET  /events
+POST /events
+DELETE /events/{id}
+
+Ticket
+GET  /tickets
+POST /tickets
+---
+
+ Disallowed
+Business logic in crud.py
+Raw SQL
+Ignoring seat limit
